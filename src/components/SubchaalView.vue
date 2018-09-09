@@ -4,13 +4,13 @@
       <div class="mdl-cell mdl-cell--3-col mdl-cell mdl-cell--1-col-tablet mdl-cell--hide-phone"></div>
       <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-phone">
 
-      <div v-for="post in this.posts" class="card">
+      <div v-for="thread in this.threads" class="card">
         <router-link
-          :to="{ name: 'post', params: { 'postId': post.id } }">
+          :to="{ name: 'thread', params: { 'threadId': thread.id } }">
             <div class="posts__title mdl-card__actions">
-              <span>{{ post.title }}</span>
+              <span>{{ thread.title }}</span>
               <br>
-              {{ post.created_at }}
+              {{ thread.created_at }}
             </div>
         </router-link>
       </div>
@@ -25,20 +25,20 @@
 
 <script>
   export default {
-    name: 'BranchView',
+    name: 'SubchaalView',
 
-    props: ['branchId'],
+    props: ['subchaalId'],
 
     mounted() {
-      this.$http.get(`explore/posts?branch=${this.$route.params.branchId}`)
+      this.$http.get(`tochaal/threads?subchaal=${this.$route.params.subchaalId}`)
         .then(({ data }) => {
-          this.posts = data;
+          this.threads = data;
         });
     },
 
     data() {
       return {
-        posts: null,
+        threads: null,
       };
     },
   };

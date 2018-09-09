@@ -1,9 +1,8 @@
 import axios from 'axios';
 import VueAxios from 'vue-axios';
-import { BASE_URL } from './urls';
 
 const http = axios.create({
-  baseURL: BASE_URL,
+  baseURL: `${process.env.API_HOST}`,
 });
 
 export default {

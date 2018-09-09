@@ -3,9 +3,9 @@
     <div class="mdl-grid">
       <div class="mdl-cell mdl-cell--3-col mdl-cell mdl-cell--1-col-tablet mdl-cell--hide-phone"></div>
       <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-phone">
-        <div v-if="!post" class="mdl-spinner mdl-js-spinner is-active"></div>
-        <div v-else v-model="post" class="post-card">
-          <div class="post__title mdl-card__actions">
+        <div v-if="!thread" class="mdl-spinner mdl-js-spinner is-active"></div>
+        <div v-else v-model="thread" class="thread-card">
+          <div class="thread__title mdl-card__actions">
             <span>{{ title }}</span>
           </div>
           <div>
@@ -19,46 +19,46 @@
 
 <script>
   export default {
-    name: 'PostView',
+    name: 'ThreadView',
 
-    props: ['postId'],
+    props: ['threadId'],
 
     mounted() {
-      this.$http.get(`explore/post/${this.$route.params.postId}/`)
+      this.$http.get(`tochaal/thread/${this.$route.params.threadId}/`)
         .then(({ data }) => {
-          this.post = data;
+          this.thread = data;
         });
     },
 
     data() {
       return {
-        post: null,
+        thread: null,
       };
     },
 
     computed: {
       title() {
-        return this.post.title;
+        return this.thread.title;
       },
       body() {
-        return this.post.body;
+        return this.thread.body;
       },
     },
   };
 </script>
 
 <style scoped>
-  .post-card {
+  .thread-card {
     margin-bottom: 8px;
   }
 
-  .post__title {
+  .thread__title {
     height: 52px;
     padding: 16px;
     text-align: right;
   }
 
-  .post__title > span {
+  .thread__title > span {
     font-size: 14px;
     font-weight: bold;
   }

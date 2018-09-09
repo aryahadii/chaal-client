@@ -1,28 +1,28 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import PostView from '@/components/PostView';
-import BranchView from '@/components/BranchView';
-import BranchesView from '@/components/BranchesView';
+import ThreadView from '@/components/ThreadView';
+import SubchaalView from '@/components/SubchaalView';
+import SubchaalsView from '@/components/SubchaalsView';
 
 Vue.use(Router);
 
 export default new Router({
   routes: [
     {
-      path: '/branches',
-      name: 'branches',
-      component: BranchesView,
+      path: '/subchaals',
+      name: 'subchaals',
+      component: SubchaalsView,
     },
     {
-      path: '/branch/:branchId',
-      name: 'branch',
-      component: BranchView,
+      path: '/subchaal/:subchaalId',
+      name: 'subchaal',
+      component: SubchaalView,
       props: true,
     },
     {
-      path: '/post/:postId',
-      name: 'post',
-      component: PostView,
+      path: '/thread/:threadId',
+      name: 'thread',
+      component: ThreadView,
       props: true,
     },
   ],

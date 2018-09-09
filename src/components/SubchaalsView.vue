@@ -3,11 +3,11 @@
     <div class="mdl-grid">
       <div class="mdl-cell mdl-cell--3-col mdl-cell mdl-cell--1-col-tablet mdl-cell--hide-phone"></div>
       <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-phone">
-        <div v-for="branch in this.branches" class="branch-card">
+        <div v-for="subchaal in this.subchaals" class="branch-card">
           <router-link
-            :to="{ name: 'branch', params: { 'branchId': branch.id } }">
+            :to="{ name: 'subchaal', params: { 'subchaalId': subchaal.id } }">
             <button class="mdl-button mdl-js-button mdl-button--primary">
-              <span>{{ branch.name }}</span>
+              <span>{{ subchaal.name }}</span>
             </button>
             <!--<div class="branch__title mdl-card__actions">-->
             <!--</div>-->
@@ -20,18 +20,18 @@
 
 <script>
   export default {
-    name: 'BranchesView',
+    name: 'SubchaalsView',
 
     mounted() {
-      this.$http.get('explore/branches/')
+      this.$http.get('tochaal/subchaals/')
         .then(({ data }) => {
-          this.branches = data;
+          this.subchaals = data;
         });
     },
 
     data() {
       return {
-        branches: null,
+        subchaals: null,
       };
     },
   };

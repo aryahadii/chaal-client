@@ -9,7 +9,7 @@
     <div class="mdl-layout__drawer">
       <nav class="mdl-navigation">
         <router-link class="mdl-navigation__link" to="/" @click.native="hideMenu">Trends</router-link>
-        <router-link class="mdl-navigation__link" to="/branches" @click.native="hideMenu">Branches</router-link>
+        <router-link class="mdl-navigation__link" to="/subchaals" @click.native="hideMenu">Subchaals</router-link>
       </nav>
     </div>
 
